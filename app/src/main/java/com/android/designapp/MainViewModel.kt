@@ -72,6 +72,8 @@ class MainViewModel: ViewModel() {
     }
 
 
+
+    // Component
     class FormField(private val mediator: ConcreteFormMediator,
                     private var validator: (String) -> Boolean ) {
         private var dataVal : String = ""
@@ -91,6 +93,9 @@ class MainViewModel: ViewModel() {
         fun onFieldChanged(field: FormField): Boolean
     }
 
+    //Mediator for communication with all the components.
+    // This will notify all the components.
+    // In this case it will check all the form field whether it is valid or not and subsequently enable/disable the save button
     class ConcreteFormMediator() : Mediator {
 
         private var fieldList = mutableListOf<FormField>()
